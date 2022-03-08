@@ -42,11 +42,12 @@ router.post('/', isLoggedIn, upload2.none(), async (req, res, next) => {
             UserId: req.user.id,
         });
         const hashtags = req.body.content.match(/#[^\s#]*/g);
+        // [findOrCreate(태그)]
         if (hashtags) {
             const result = await Promise.all(
                 hashtags.map(tag => {
                     return Hashtag.findOrCreate({
-                        where: { title: tag.slice(1).toLowerCase() },
+                        where: { title: tag.slice(1).toLowerCase() }, 
                     })
                 }),
             );
