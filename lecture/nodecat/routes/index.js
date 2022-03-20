@@ -3,7 +3,8 @@ const axios = require('axios');
 
 const router = express.Router();
 
-const URL = 'http://localhost:8002/v1';
+// const URL = 'http://localhost:8002/v1'; v1은 더이상 사용 x
+const URL = 'http://localhost:8002/v2';
 axios.default.headers.origin = 'http://localhost:4000';
 
 const request = async (req, api) => {
